@@ -1,0 +1,54 @@
+<div class="main-container">
+  <img mat-card-image class="image"
+    src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+
+  <div class="centered">
+    <h1 style="font-size: 30px; text-shadow: 20px; text-align: justify; color:black">
+      <b>The Community</b>
+    </h1>
+    <h5 style="font-size: 15px; text-shadow: 20px; text-align: justify; color:black">
+      Find Solutions. Ask Questions, Share Ideas. Connect with users across the
+      globe.
+    </h5>
+  </div>
+  <div class="top-left" *ngIf="loggedIn()" style="color:black">
+    Welcome Mr. {{ currentUser().firstName }}
+  </div>
+
+  <div class="top-right" *ngIf="loggedIn()">
+    <a (click)="logout()" style="color: rgb(0, 0, 0); cursor: pointer"><span class="material-icons"> logout
+      </span>Logout</a>
+    <div style="margin-top: 15px" *ngIf="currentUser().authorities[0].authority == 'ADMIN'">
+      <button mat-raised-button color="primary" routerLink="/admin/users">
+        Admin Panel
+      </button>
+    </div>
+  </div>
+
+  <div class="top-left" *ngIf="!loggedIn()">
+    <a routerLink="/login" style="color: rgb(0, 0, 0)"><span class="material-icons"> account_circle </span>Login /
+      Register</a>
+  </div>
+
+  <form class="centereds" #registerForm="ngForm" (ngSubmit)="search()" *ngIf="loggedIn()">
+
+    <div class="box">
+      <table class="element">
+        <tr>
+          <td>
+            <input id="search" type="text" placeholder="search the community" class="search" required/>
+          </td>
+          <td>
+              <button (click)="search()" class="btn"> Search </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </form>
+
+  <div class="centeredb" *ngIf="loggedIn()">
+    <a routerLink="/question"><button mat-raised-button style="color:primary"> New Topic </button></a>
+  </div>
+
+</div>

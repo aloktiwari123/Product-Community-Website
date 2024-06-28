@@ -1,0 +1,23 @@
+<div class="container">
+    <form class="example-form" #registerForm="ngForm" (ngSubmit)="registerQuestion()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Subject</mat-label>
+            <input matInput type="text" [(ngModel)]="question.subject" required name="subject" #subject="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Select Product</mat-label>
+            <input matInput type="text" [(ngModel)]="question.productID" required name="productID" #productID="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Body</mat-label>
+            <input matInput type="text" [(ngModel)]="question.body" required name="body" #body="ngModel">
+        </mat-form-field>
+
+        <div class="example-button-row">
+            <button mat-raised-button type="reset">Cancel</button>
+            <button mat-raised-button type="submit" color="primary">Post</button>
+        </div>
+    </form>
+</div>

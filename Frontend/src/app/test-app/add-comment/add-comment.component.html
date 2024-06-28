@@ -1,0 +1,14 @@
+<h1 class="p-3 text-center">Adding Comments</h1>
+<div class="container">
+    <form class="example-form" #registerForm="ngForm" (ngSubmit)="registerComment()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Comment</mat-label>
+            <input matInput type="text" [(ngModel)]="comment.commentBody" required name="comment">
+        </mat-form-field>
+
+        <div class="example-button-row">
+            <button mat-raised-button type="reset">Cancel</button>
+            <button mat-raised-button type="submit" color="primary">Post</button>
+        </div>
+    </form>
+</div>

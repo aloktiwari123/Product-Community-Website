@@ -1,0 +1,24 @@
+<h1 class="p-3 text-center">Community Search Result</h1>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Product ID:</th>
+                <th>Subject:</th>
+                <th>Body:</th>
+                <th>Action:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let question of allQuestions">
+                <td>{{question.productID}}</td>
+                <td>{{question.subject}}</td>
+                <td>{{question.body}}</td>
+                <td>
+                    <a routerLink="/addcomment/{{question.id}}"><button mat-raised-button style="color:primary"> Add Comment </button></a>
+                    <a routerLink="/viewcomments/{{question.id}}"><button mat-raised-button style="color:primary"> View Comments </button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
